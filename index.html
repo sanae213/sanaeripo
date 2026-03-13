@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>商品力診断ツール</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>中小企業向け 商品力診断ツール</h1>
+      <p class="lead">フォーム入力後、AIが商品力診断レポートを生成します。</p>
+
+      <section class="card">
+        <h2>設定</h2>
+        <label>
+          OpenAI APIキー
+          <input id="apiKey" type="password" placeholder="sk-..." />
+        </label>
+        <label>
+          分析プロンプト（要件の診断プロンプトを貼り付け）
+          <textarea id="analysisPrompt" rows="6">あなたは中小企業向けの商品戦略コンサルタントです。
+以下の入力情報を分析し、「商品力診断レポート」を作成してください。
+
+# 出力項目
+1. 総評（100〜200字）
+2. 強みと差別化ポイント
+3. 改善ポイント（優先度順）
+4. ターゲット適合性
+5. 価格と販売方法の妥当性
+6. 次のアクション（3つ）
+
+具体的・実行可能な提案を重視してください。</textarea>
+        </label>
+      </section>
+
+      <form id="diagnosisForm" class="card form-grid">
+        <h2>入力フォーム</h2>
+        <label>会社名<input name="companyName" required /></label>
+        <label>商品名<input name="productName" required /></label>
+        <label>商品説明<textarea name="productDescription" required></textarea></label>
+        <label>ターゲット<textarea name="target" required></textarea></label>
+        <label>悩み<textarea name="pain" required></textarea></label>
+        <label>競合<textarea name="competitors" required></textarea></label>
+        <label>強み<textarea name="strengths" required></textarea></label>
+        <label>価格<input name="price" required /></label>
+        <label>販売方法<textarea name="salesMethod" required></textarea></label>
+        <button id="submitBtn" type="submit">AIで分析する</button>
+      </form>
+
+      <section class="card">
+        <h2>商品力診断レポート</h2>
+        <pre id="report">まだ診断していません。</pre>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

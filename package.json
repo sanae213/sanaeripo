@@ -1,0 +1,9 @@
+{
+  "name": "product-power-diagnosis-tool",
+  "version": "1.0.0",
+  "private": true,
+  "description": "中小企業向けの商品力診断ツール（静的Webアプリ）",
+  "scripts": {
+    "start": "python3 -m http.server 8000"
+  }
+}
